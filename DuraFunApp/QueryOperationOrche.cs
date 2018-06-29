@@ -1,7 +1,4 @@
-﻿// Copyright (c) .NET Foundation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
-using Microsoft.Azure.WebJobs;
+﻿using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
@@ -52,48 +49,6 @@ namespace DuraFunApp
 
             result = JsonConvert.SerializeObject(results);
 
-            #region reference for WhenAny
-            //Case using WhenAny
-            //while (tasks.Count > 0)
-            //{
-            //    var finishedTask = await Task.WhenAny(tasks);
-            //    if (finishedTask.Status == TaskStatus.RanToCompletion)
-            //    {
-
-            //    }
-            //    result += finishedTask.Result;
-            //    context.SetCustomStatus(result);
-
-            //    tasks.Remove(finishedTask);
-            //}
-
-            //Action<Task<string>> handler = null;
-            //handler = t =>
-            //{
-            //    if (t.IsFaulted)
-            //    {
-            //        tasks.Remove(t);
-            //        if (tasks.Count == 0)
-            //        {
-            //            throw new Exception("No Tasks at all!");
-            //        }
-            //        Task.Factory.ContinueWhenAny(tasks.ToArray(), handler);
-            //    }
-            //    else
-            //    {
-            //        //result += t.Result;     //not work
-            //        //context.SetCustomStatus(result);    //not work
-            //        //Console.WriteLine($"Task Result : {t.Result}");
-            //    }
-            //};
-
-            //Task.Factory.ContinueWhenAny(tasks.ToArray(), handler);
-
-            //for (int i = 0; i < loopCount; i++)
-            //{
-            //    result += await tasks[0];
-            //}
-            #endregion
 
             return result;
         }
